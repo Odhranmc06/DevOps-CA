@@ -1,0 +1,25 @@
+name: Maven Tests
+
+on:
+  push:
+    branches:
+      - main
+      - Odhranmc06-patch-1
+      pull_request:
+      branches:
+      - main
+      - Odhranmc06-patch-1
+   workflow_dispatch:
+
+   permissions:
+     contents: read
+
+   jobs:
+     test-main:
+       name: Run all tests on main branch
+       if: github.ref == 'refs/head/main' || (github.event_name == 'pull_request' && github.base_ref == 'main')
+       runs-on: ubuntu-latest
+
+       steps:
+         - name: check out repository
+         - uses: 
